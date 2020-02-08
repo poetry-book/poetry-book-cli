@@ -1,7 +1,7 @@
 # Poetry book cli
 
 [![Crates.io](https://img.shields.io/crates/v/poetry-book-cli.svg)](https://crates.io/crates/poetry-book-cli)
-[![CI](https://github.com/poetry-book-cli/poetry-book/workflows/Rust/badge.svg)](https://github.com/poetry-book/poetry-book-cli/actions)
+[![CI](https://github.com/poetry-book/poetry-book-cli/workflows/Rust/badge.svg)](https://github.com/poetry-book/poetry-book-cli/actions)
 [![unsafe forbidden](https://img.shields.io/badge/unsafe-forbidden-success.svg)](https://github.com/rust-secure-code/safety-dance/)
 
 [Poetry-book](https://github.com/poetry-book/poetry-book) Command line interface.
