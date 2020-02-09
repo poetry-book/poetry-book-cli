@@ -127,7 +127,7 @@ pub struct PoemFormattingJson {
 }
 
 impl PoemFormattingJson {
-    pub fn get(&self) -> PoemFormatting {
+    pub fn get(self) -> PoemFormatting {
         let centered_verse = match self.centered_verse {
             CenteredVerseJson::Average => CenteredVerse::Average,
             CenteredVerseJson::Longest => CenteredVerse::Longest,
