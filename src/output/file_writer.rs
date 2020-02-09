@@ -22,7 +22,7 @@ impl FileWriter {
             );
             fs::create_dir(&output_dir).expect(&error_message);
         }
-        let output_file = output_dir.join("book.latex");
+        let output_file = output_dir.join("book.tex");
         fs::write(output_file, self.book_content).expect("Unable to write book to file");
     }
 }
