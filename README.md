@@ -8,6 +8,26 @@
 
 Create a latex poetry book starting from poems written in plain text files.
 
+## Install
+
+```
+$ cargo install poetry-book-cli
+```
+
+## Usage
+
+```
+USAGE:
+    poetry-book-cli <book-dir>
+
+FLAGS:
+    -h, --help       Prints help information
+    -V, --version    Prints version information
+
+ARGS:
+    <book-dir>    The path of the book directory
+```
+
 ## Directory
 
 The directory structure that contains the input of the program looks like this:
