@@ -64,13 +64,11 @@ The directory structure that contains the input of the program looks like this:
 }
 ```
 
-The fields `toc_title`, `preface` and `language` are optional.
-
 * author: book author
 * title: book title
 * toc_title: table of contents title (optional)
 * language: language of the poems (optional)
-* preface: filename of the preface. The preface (without extension) is used as preface title.
+* preface: filename of the preface (optional). The preface (without extension) is used as preface title.
 * poem_formatting: how poems should be formatted (optional)
   * centered_verse: Determine which verse will be centered. There are two options:
     * longest: The verse with the longest length (default)
