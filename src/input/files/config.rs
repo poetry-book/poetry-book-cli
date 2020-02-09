@@ -1,3 +1,5 @@
+use poetry_book::PoemFormatting;
+use poetry_book::CenteredVerse;
 use serde::Deserialize;
 
 pub const CONFIG_FILE: &str = "book.json";
@@ -8,6 +10,7 @@ pub struct Config {
     title: String,
     toc_title: Option<String>,
     preface: Option<String>,
+    poem_formatting: Option<PoemFormattingJson>,
     poems: Vec<String>,
     language: Option<String>,
 }
@@ -37,6 +40,10 @@ impl Config {
         self.toc_title.as_deref()
     }
 
+    pub fn poem_formatting(&self) -> Option<PoemFormattingJson> {
+        self.poem_formatting
+    }
+
     /// preface filename
     pub fn preface(&self) -> Option<&str> {
         self.preface.as_deref()
@@ -60,6 +67,9 @@ mod tests {
             toc_title: Some("Index".to_string()),
             preface: Some("Preface".to_string()),
             language: None,
+            poem_formatting: Some(PoemFormattingJson {
+                centered_verse: CenteredVerseJson::Average
+            }),
             poems: vec!["poem_a".to_string(), "poem_b".to_string()],
         };
 
@@ -69,6 +79,9 @@ mod tests {
                 "title": "my book",
                 "toc_title": "Index",
                 "preface": "Preface",
+                "poem_formatting": {
+                    "centered_verse": "average"
+                },
                 "poems": [
                     "poem_a",
                     "poem_b"
@@ -88,6 +101,7 @@ mod tests {
             toc_title: None,
             preface: None,
             language: None,
+            poem_formatting: None,
             poems: vec!["poem_a".to_string(), "poem_b".to_string()],
         };
 
@@ -105,4 +119,26 @@ mod tests {
         let actual_config = Config::new(config_json);
         assert_eq!(expected_config, actual_config);
     }
+}
+
+#[derive(Deserialize, PartialEq, Debug, Copy, Clone)]
+pub struct PoemFormattingJson {
+    centered_verse: CenteredVerseJson
+}
+
+impl PoemFormattingJson {
+    pub fn get(&self) -> PoemFormatting {
+        let centered_verse = match self.centered_verse {
+            CenteredVerseJson::Average => CenteredVerse::Average,
+            CenteredVerseJson::Longest => CenteredVerse::Longest,
+        };
+        PoemFormatting::new(centered_verse)
+    }
+}
+
+#[derive(Deserialize, PartialEq, Debug, Copy, Clone)]
+#[serde(rename_all = "snake_case")]
+pub enum CenteredVerseJson {
+    Average,
+    Longest
 }

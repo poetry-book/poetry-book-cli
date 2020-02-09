@@ -43,6 +43,10 @@ impl BookDir {
             book_builder = book_builder.preface(pref);
         }
 
+        if let Some(poem_formatting) = config.poem_formatting() {
+            book_builder = book_builder.poem_formatting(poem_formatting.get());
+        }
+
         book_builder.finish()
     }
 

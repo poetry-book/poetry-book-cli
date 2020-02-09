@@ -53,6 +53,9 @@ The directory structure that contains the input of the program looks like this:
     "toc_title": "Table of Contents",
     "language": "Italian",
     "preface": "Preface.txt",
+    "poem_formatting": {
+        "centered_verse": "average"
+    },
     "poems": [
         "La ginestra.txt",
         "L'infinito",
@@ -68,6 +71,10 @@ The fields `toc_title`, `preface` and `language` are optional.
 * toc_title: table of contents title (optional)
 * language: language of the poems (optional)
 * preface: filename of the preface. The preface (without extension) is used as preface title.
+* poem_formatting: how poems should be formatted (optional)
+  * centered_verse: Determine which verse will be centered. There are two options:
+    * longest: The verse with the longest length (default)
+    * average: A verse with a number of 'x' equal to the average length among all verses
 * poems: ordered list of poems filename. The filename (without extension) is used as poem title.
 
 ### Poems
