@@ -1,6 +1,6 @@
 [package]
 name = "poetry-book-cli"
-version = "0.1.2"
+version = "0.1.3"
 authors = ["MarcoIeni"]
 edition = "2018"
 description = "poetry-book command line interface. Create a poetry book in latex from your terminal."
